@@ -2,7 +2,7 @@
 
   <div class="my-2">
     <div class="col offset-11">
-        <button class="btn btn-success" (click)="abrirModal(template)" >Nuevo</button>
+        <button class="btn btn-success btn-sm" (click)="abrirModal(template)" >Nuevo</button>
     </div>
   </div>
 
@@ -16,21 +16,11 @@
               <th scope="col">Clase</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngFor="let user of users ; let i = index">
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
+              <th scope="row">{{i+1}}</th>
+              <td>{{user.name}}</td>
+              <td>{{user.type}}</td>
             </tr>
           </tbody>
         </table>
@@ -44,7 +34,7 @@
 <ng-template #template>
 
   <div class="modal-header">
-    <h4 class="title modal-title pull-left">Alta Cliente</h4>
+    <h4 class="title modal-title pull-left">Agregar Usuario</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="altaClienteModal.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
