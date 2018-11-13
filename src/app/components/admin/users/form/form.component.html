@@ -1,0 +1,37 @@
+<form [formGroup]="form" (ngSubmit)="newUser()" novalidate="novalidate">
+
+  <div class="row container">
+
+    <div class="col-sm-12 form-group">
+      <label>Nombre <small>(*)</small></label>
+      <input [ngClass]="{ 'error' : form.get('name').invalid && form.get('name').touched }" class="form-control" type="text"
+        formControlName="name" placeholder="Ingrese Nombre">
+      <div *ngIf="form.get('name').invalid && form.get('name').touched" class="errdesc">
+        <small>Ingreso inváldo. Solo letras. 1 a 50 caracteres.</small>
+      </div>
+    </div>
+
+    <div class="col-sm-12 form-group">
+      <label>Contraseña <small>(*)</small></label>
+      <input [ngClass]="{ 'error' : form.get('password').invalid && form.get('password').touched }" class="form-control" type="password"
+        formControlName="password" placeholder="Ingrese Contraseña">
+      <div *ngIf="form.get('password').invalid && form.get('password').touched" class="errdesc">
+        <small>Ingreso inváldo. Solo letras. 1 a 50 caracteres.</small>
+      </div>
+    </div>
+
+    <div class="col-sm-12 form-group">
+      <label>Rol <small>(*)</small></label>
+      <input [ngClass]="{ 'error' : form.get('role').invalid && form.get('role').touched }" class="form-control" type="text"
+        formControlName="role">
+      <div *ngIf="form.get('role').invalid && form.get('role').touched" class="errdesc">
+        <small>Ingreso inváldo. Solo letras. 1 a 50 caracteres.</small>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</form>
