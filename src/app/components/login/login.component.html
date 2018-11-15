@@ -1,0 +1,36 @@
+<div class="login row m-5 animated fadeIn fast">
+
+  <div class="col-12">
+    
+    <div class="row my-4">
+      <div class="col-12 text-center">
+        <img src="../../../assets/imagenes/logo.png" alt="">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="title col-12 text-center">
+        <span>Ingreso</span>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <form class="col-6 row justify-content-center" (ngSubmit)="login()"  [formGroup]="formLogin" novalidate="novalidate">
+        <div class="col-12 form-group">
+          <label class="title">Usuario:</label>
+          <input formControlName="usuario" class="form-control" type="text" placeholder="Ingrese Usuario">
+        </div>
+        <div class="col-12 form-group">
+          <label class="title">Contraseña:</label>
+          <input formControlName="contrasena" class="form-control" type="password" placeholder="Ingrese Contraseña">
+        </div>
+        <div class="col-12 form-group mt-2">
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </div>
+        <div class="col-12">
+          <p-messages [(value)]="msgs"></p-messages>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>

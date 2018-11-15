@@ -10,20 +10,22 @@ import { map } from 'rxjs/operators';
 export class GlobalService {
     URL_SERVER = '';
 
+    options = {
+        headers : new HttpHeaders({
+            'Content-Type' : 'application/json'
+            // 'token' : localStorage.getItem('token')
+
+        })
+    };
+
     constructor(private _http: HttpClient) { }
 
-
     get(url: string) {
-        const options = {
-            headers : new HttpHeaders({
-                'Content-Type' : 'application/json'
-                // 'token' : localStorage.getItem('token')
+        return  this._http.get( this.URL_SERVER + url, this.options );
+    }
 
-            })
-        };
-        return  this._http.get( this.URL_SERVER + url, options )
-        .pipe(map(res => res) );
-
+    post(url: string, body: any) {
+        return this._http.post(this.URL_SERVER + url, body, this.options);
     }
 
 }
